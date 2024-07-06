@@ -7,16 +7,23 @@ import {
   faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Members from '../../assets/DashboardIcons/Members'
+import ActiveNow from '../../assets/DashboardIcons/ActiveNow'
+import TotalCustomers from '../../assets/DashboardIcons/TotalCustomers'
+import Ellipse58 from "../../assets/DashboardIcons/Ellipse58";
+import Ellipse59 from "../../assets/DashboardIcons/Ellipse59";
+import Ellipse60 from "../../assets/DashboardIcons/Ellipse60";
+import Ellipse61 from "../../assets/DashboardIcons/Ellipse61";
+import Ellipse62 from "../../assets/DashboardIcons/Ellipse62";
 
 const MainDashboard = () => {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   return (
-    <div className="flex h-screen">
-     
-
-      <div className="hidden w-full h-screen px-20 py-10  sm:block bg-slate-400 bg-opacity-15">
-        <div className="flex justify-between ">
-          <h1 className="text-3xl font-bold">Hello Evano 👋,</h1>
+    <div className="flex h-screen w-full">
+      <div className="w-screen  bg-slate-400 bg-opacity-15">
+      <div className=" w-[90%] h-screen  py-10  sm:block pr-12 pl-4">
+        <div className="flex sm:justify-between flex-col sm:flex-row">
+          <h1 className="text-3xl font-bold text-center mb-4 sm:mb-0 sm:text-left">Hello Evano 👋,</h1>
 
           <label
             htmlFor="default-search"
@@ -52,10 +59,10 @@ const MainDashboard = () => {
           </div>
         </div>
         <div className="mt-10 ">
-          <div className="grid items-center justify-center w-full h-40 grid-cols-1 px-10 bg-white shadow-lg md:grid-cols-2 lg:grid-cols-3 rounded-3xl">
-            <div className="flex space-x-6 wrap">
+          <div className=" flex flex-col sm:flex-row sm:w-full sm:flex-wrap align-middle items-start sm:items-center justify-center w-full  px-10 bg-white shadow-lg rounded-3xl py-4 gap-4 sm:justify-around">
+            <div className="flex space-x-6 justify-start">
               <div className="image">
-                <img src="images/Group 10.png" alt="" />
+                <TotalCustomers/>
               </div>
               <div className="text">
                 <p className="text-dbCol">Total Customers</p>
@@ -65,11 +72,12 @@ const MainDashboard = () => {
                   <span className="text-base text-textCol">this month</span>
                 </span>
               </div>
-              <div className="border-r border-border-dbCol"></div>
-            </div>
-            <div className="flex space-x-6 wrap">
+              
+              </div>
+              <div className="hidden sm:block h-[5rem] border-[#47474715] border w-0"></div>
+            <div className="flex space-x-6 ">
               <div className="image">
-                <img src="images/Group 10 (1).png" alt="" />
+                <Members />
               </div>
               <div className="text">
                 <p className="text-dbCol">Members</p>
@@ -79,21 +87,24 @@ const MainDashboard = () => {
                   <span className="text-base text-textCol">this month</span>
                 </span>
               </div>
-              <div className="border-r border-border-dbCol"></div>
-            </div>
-            <div className="flex space-x-6 wrap">
+           
+              </div>
+              <div className="hidden sm:block h-[5rem] border-[#47474715] border w-0"></div>
+              
+            <div className="flex space-x-6 ">
               <div className="image">
-                <img src="images/Group 10 (2).png" alt="" />
+                <ActiveNow />
               </div>
               <div className="text">
                 <p className="text-dbCol">Active Now</p>
                 <h2 className="text-4xl font-bold text-textCol">189</h2>
-                <div className="flex -space-x-2">
-                  <img src="images/Ellipse 58.png" alt="" />
-                  <img src="images/Ellipse 59.png" alt="" />
-                  <img src="images/Ellipse 60.png" alt="" />
-                  <img src="images/Ellipse 61.png" alt="" />
-                  <img src="images/Ellipse 62.png" alt="" />
+                <div className="flex -space-x-2 border-black">
+                  <Ellipse58 />
+                  <Ellipse59 />
+                  <Ellipse60 />
+                  <Ellipse61 />
+                  <Ellipse62 />
+                  
                 </div>
               </div>
             </div>
@@ -349,6 +360,7 @@ const MainDashboard = () => {
           </div>
         </div>
       </div>
+     </div>
     </div>
   );
 };
