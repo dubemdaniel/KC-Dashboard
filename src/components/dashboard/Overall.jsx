@@ -1,10 +1,11 @@
 import React from 'react'
 import SideBar from './SideBar'
-
+import MainSection from './MainSection'
 const Overall = () => {
   return (
-      <div className='bg-[#FAFBFF]'>
-          <SideBar/>
+      <div className='bg-[#FAFBFF] flex'>
+      <SideBar  />
+      <MainSection/>
     </div>
   )
 }

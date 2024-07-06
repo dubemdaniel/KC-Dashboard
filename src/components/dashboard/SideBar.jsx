@@ -24,47 +24,46 @@ const Bar = () => {
     {
       component: (
         <Dashboardmini
-          fill={hoveredIcon === "Dashboard" ? "white" : "#9197B3"}
         />
       ),
       name: "Dashboard",
     },
     {
       component: (
-        <ProductLogo fill={hoveredIcon === "Product" ? "white" : "#9197B3"} />
+        <ProductLogo
+        />
       ),
       name: "Product",
     },
     {
       component: (
         <CustomersLogo
-          fill={hoveredIcon === "Customers" ? "white" : "#9197B3"}
         />
       ),
       name: "Customers",
     },
     {
       component: (
-        <IncomeLogo fill={hoveredIcon === "Income" ? "white" : "#9197B3"} />
+        <IncomeLogo />
       ),
       name: "Income",
     },
     {
       component: (
-        <PromoteLogo fill={hoveredIcon === "Promote" ? "white" : "#9197B3"} />
+        <PromoteLogo />
       ),
       name: "Promote",
     },
     {
       component: (
-        <HelpLogo fill={hoveredIcon === "Help" ? "white" : "#9197B3"} />
+        <HelpLogo  />
       ),
       name: "Help",
     },
   ];
 
   return (
-    <div className="flex flex-col h-screen bg-[white] text-black w-16 hover:w-64 transition-width duration-300 group hover:items-start">
+    <div className="flex flex-col h-screen bg-[white] text-black w-16 hover:w-64 transition-width duration-300 group hover:items-start ">
       <div className=" gap-2 p-5 flex align-middle mt-6 mb-4">
         <div>
           {" "}
@@ -79,12 +78,10 @@ const Bar = () => {
         {svgIcons.map((icon, index) => (
           <li
             key={index}
-            className="flex items-start space-x-4 w-[100%] hover:bg-[#5932EA] hover:p-2 hover:rounded-lg hover:text-white"
-            onMouseEnter={() => setHoveredIcon(icon.name)}
-            onMouseLeave={() => setHoveredIcon(null)}
+            className="flex group/list items-start space-x-4 w-[100%] hover:bg-[#5932EA] hover:p-2 hover:rounded-lg hover:text-white text-[#9197B3]"
           >
-            {icon.component}
-            <span className="hidden group-hover:inline-block ">{icon.name}</span>
+            <span className="group-hover/list:inline-block group-hover/list:text-white">{icon.component}</span>
+            <span className="hidden group-hover:inline-block text-[#9197B3] group-hover/list:text-white ">{icon.name}</span>
           </li>
         ))}
       </ul>
