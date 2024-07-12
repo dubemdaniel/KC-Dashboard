@@ -8,8 +8,12 @@ const AddressTwo = () => {
     navigate('/Success')
   }
 
+  const gotoAddAddress = () => {
+    navigate('/AddAddress')
+  }
+
   return (
-    <div className="sm:flex sm:justify-center sm:h-screen sm:items-center">
+    <div className="sm:flex sm:justify-center sm:h-screen sm:items-center mt-6 sm:mt-0">
       <div className="register bg-offWhite p-2 w-[90%] lg:w-[35%] sm:h-fit sm:p-12 rounded-3xl 2xl:w-[30%]  m-auto sm:shadow-lg my-auto">
         <div className="first-row flex justify-between">
           <div className="pages flex space-x-5">
@@ -21,7 +25,7 @@ const AddressTwo = () => {
             </p>
           </div>
           <div className="cancel">
-            <button>
+            <button onClick={gotoAddAddress}>
               <img src={Cancel} className="text-2xl" />
             </button>
           </div>

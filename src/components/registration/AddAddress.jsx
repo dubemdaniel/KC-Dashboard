@@ -14,8 +14,12 @@ const PersonalInformation = () => {
     navigate("/ManualAddress");
   };
 
+  const goToPersonalInfo = () => {
+    navigate('/Personalinfo')
+  }
+
   return (
-    <div className="sm:flex sm:justify-center sm:h-screen sm:items-center ">
+    <div className="sm:flex sm:justify-center sm:h-screen sm:items-center mt-6 sm:mt-0">
       <div className="register bg-offWhite p-2 w-[90%] lg:w-[40%] md:h-fit sm:p-12 rounded-3xl m-auto sm:shadow-lg 2xl:w-[30%]">
         <div className="first-row flex justify-between">
           <div className="pages flex space-x-5">
@@ -25,7 +29,7 @@ const PersonalInformation = () => {
             </p>
           </div>
           <div className="cancel">
-            <button>
+            <button onClick={goToPersonalInfo}>
               <img src={Cancel} alt="" className="text-2xl" />
             </button>
           </div>

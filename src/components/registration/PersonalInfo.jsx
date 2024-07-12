@@ -9,38 +9,15 @@ const PersonalInformation = () => {
   const gotoAddress = () => {
     navigate('/AddAddress')
   }
-//   const dateInputRef = useRef(null);
 
-//   useEffect(() => {
-//     const handleFocus = (e) => {
-//       if (e.target.type === "text") {
-//         e.target.type = "date";
-//       }
-//     };
+  const gotoSignUp = () => {
+    navigate('/')
+  }
 
-//     const handleBlur = (e) => {
-//       if (!e.target.value) {
-//         e.target.type = "text";
-//         e.target.placeholder = "yyyy-mm-dd";
-//       }
-//     };
-
-//     const input = dateInputRef.current;
-//     if (input.value === "") {
-//       input.type = "text";
-//       input.placeholder = "yyyy-mm-dd";
-//     }
-//     input.addEventListener("focus", handleFocus);
-//     input.addEventListener("blur", handleBlur);
-
-//     return () => {
-//       input.removeEventListener("focus", handleFocus);
-//       input.removeEventListener("blur", handleBlur);
-//     };
 //   }, []);
 
   return (
-    <div className="sm:flex sm:justify-center sm:h-screen sm:items-center">
+    <div className="sm:flex sm:justify-center sm:h-screen sm:items-center mt-6 sm:mt-0">
     <div className="register bg-offWhite p-2 w-[90%] lg:w-[40%] sm:h-fit sm:p-12 rounded-3xl sm:shadow-lg m-auto 2xl:w-[30%]">
       <div className="first-row flex justify-between">
         <div className="pages flex space-x-5">
@@ -50,7 +27,7 @@ const PersonalInformation = () => {
           <p className="text-[#6BC62D] font-semibold text-xl sm:text-2xl">2 of 3</p>
         </div>
         <div className="cancel">
-          <button>
+          <button onClick={gotoSignUp}>
             <img src={Cancel} alt="" className="text-2xl" />
           </button>
         </div>
