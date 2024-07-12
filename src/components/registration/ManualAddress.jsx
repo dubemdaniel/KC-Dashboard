@@ -1,7 +1,13 @@
 import React from "react";
 import Cancel from "../../assets/images/Cancel.svg";
+import { useNavigate } from "react-router";
 
 const AddressTwo = () => {
+  const navigate = useNavigate()
+  const gotoSuccess = () => {
+    navigate('/Success')
+  }
+
   return (
     <div className="sm:flex sm:justify-center sm:h-screen sm:items-center">
       <div className="register bg-offWhite p-2 w-[90%] lg:w-[35%] sm:h-fit sm:p-12 rounded-3xl 2xl:w-[30%]  m-auto sm:shadow-lg my-auto">
@@ -62,6 +68,7 @@ const AddressTwo = () => {
           <button
             className="register-btn mt-32 py-5 rounded-2xl text-white font-semibold text-xl w-full text-center bg-[#5932EA]"
             type="submit"
+            onClick={gotoSuccess}
           >
             Save information
           </button>

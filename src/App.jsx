@@ -9,6 +9,7 @@ import Sidebar from "./components/dashboard/SideBar";
 import Overall from "./components/dashboard/Overall";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Personalinfo from "../src/components/registration/PersonalInfo"
+import Success from "./components/dashboard/success";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/PersonalInfo" Component={Personalinfo}/>
         <Route exact path="/AddAddress" Component={AddAddress}/>
         <Route exact path="/Overall" Component={Overall}/>
+        <Route exact path="/Success" Component={Success}/>
       </Routes>
     </BrowserRouter>
     // <>
