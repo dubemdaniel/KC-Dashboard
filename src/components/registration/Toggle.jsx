@@ -1,10 +1,22 @@
 import React from "react";
+import { NavLinks } from "./NavLinks";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Toggle = () => {
+  const location = useLocation();
+
   return (
     <div className="flex justify-between w-[8rem]">
-      <span>Register</span>
-      <span className="text-[#757475b6]">Log In</span>
+      {NavLinks.map((links, index) => (
+        <a key={index}
+          className={
+            location.pathname === links.href ? "border-b-2 border-red-400" : ""
+          }
+        >
+          <NavLink to={links.href}> {links.name}  </NavLink>
+          </a>
+      ))}
+      {/* <span className="text-[#757475b6] ">Log In</span> */}
     </div>
   );
 };

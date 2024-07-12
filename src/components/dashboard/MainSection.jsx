@@ -64,7 +64,7 @@ const MainDashboard = () => {
           <div className="mt-10 ">
             <div className=" flex flex-col sm:flex-row sm:w-full sm:flex-wrap align-middle items-start sm:items-center justify-center w-full  px-10 bg-white shadow-lg rounded-3xl py-4 gap-4 sm:justify-around">
               <div className="flex space-x-6 justify-start">
-                <div className="image">
+                <div className="image ">
                   <TotalCustomers />
                 </div>
                 <div className="text">

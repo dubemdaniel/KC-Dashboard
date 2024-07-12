@@ -10,8 +10,8 @@ import Toggle from "./Toggle";
 
 const Login = () => {
   return (
-    <div>
-      <div className="register bg-offWhite p-2 w-[96%] lg:w-[40%] 2xl:w-[30%]  md:h-[60%] lg:h-[80%] sm:p-8 rounded-3xl m-auto sm:shadow-lg my-auto">
+    <div className="sm:flex sm:justify-center sm:h-screen sm:items-center ">
+      <div className="register bg-offWhite p-2 w-[96%] lg:w-[40%] 2xl:w-[30%]  md:h-[60%] lg:h-fit sm:p-8 rounded-3xl m-auto sm:shadow-lg my-auto">
         <div className="first-row flex justify-between">
           <Toggle/>
           <div className="cancel">

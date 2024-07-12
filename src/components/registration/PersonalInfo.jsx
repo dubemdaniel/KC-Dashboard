@@ -2,8 +2,13 @@ import React from "react";
 import { useRef, useEffect } from "react";
 import Cancel from "../../assets/images/Cancel.svg";
 import Warning from "../../assets/images/Warning.svg";
+import { useNavigate } from "react-router-dom";
 
 const PersonalInformation = () => {
+  const navigate = useNavigate();
+  const gotoAddress = () => {
+    navigate('/AddAddress')
+  }
 //   const dateInputRef = useRef(null);
 
 //   useEffect(() => {
@@ -35,7 +40,8 @@ const PersonalInformation = () => {
 //   }, []);
 
   return (
-    <div className="register bg-offWhite p-2 w-[90%] lg:w-[40%] md:h-[60%] lg:h-[90%] sm:p-12 rounded-3xl sm:shadow-lg m-auto 2xl:w-[30%]">
+    <div className="sm:flex sm:justify-center sm:h-screen sm:items-center">
+    <div className="register bg-offWhite p-2 w-[90%] lg:w-[40%] sm:h-fit sm:p-12 rounded-3xl sm:shadow-lg m-auto 2xl:w-[30%]">
       <div className="first-row flex justify-between">
         <div className="pages flex space-x-5">
           <h2 className=" font-semibold text-xl sm:text-2xl">
@@ -105,10 +111,11 @@ const PersonalInformation = () => {
       <button
         className="register-btn mt-7 py-5 rounded-2xl text-white font-semibold text-xl w-full text-center bg-[#5932EA]"
         type="submit"
+        onClick={gotoAddress}
       >
         Save Information
       </button>
-    </div>
+    </div></div>
   );
 };
 

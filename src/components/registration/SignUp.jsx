@@ -6,12 +6,19 @@ import Cancel from "../../assets/images/Cancel.svg";
 import Password from '../../assets/images/Password.svg'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Toggle from "./Toggle";
+import { useNavigate } from "react-router";
 
 
 const SignUp = () => {
+
+  const navigate = useNavigate()
+  const goToPersonalInfo = () => {
+    navigate('/personalinfo')
+  }
+
   return (
-    <div>
-      <div className="register bg-offWhite p-2 w-[96%] lg:w-[40%] 2xl:w-[30%]  md:h-[60%] lg:h-[80%] sm:p-8 rounded-3xl m-auto sm:shadow-lg my-auto">
+    <div className="sm:flex sm:justify-center sm:h-screen sm:items-center ">
+      <div className="register bg-offWhite p-2 w-[96%] lg:w-[40%] 2xl:w-[30%]  md:h-[60%] lg:h-fit sm:p-8 rounded-3xl m-auto sm:shadow-lg my-auto ">
         <div className="first-row flex justify-between">
           <Toggle/>
           <div className="cancel">
@@ -101,6 +108,7 @@ const SignUp = () => {
               <button
                 className="register-btn mt-7 py-5 rounded-2xl text-white font-semibold text-xl w-full text-center bg-[#5932EA]"
                 type="submit"
+                onClick={goToPersonalInfo}
                 // disabled={isSubmitting}
                 // onClick={() => goToPersonalInfo}
               >
