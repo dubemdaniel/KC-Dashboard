@@ -117,7 +117,7 @@ const MainDashboard = () => {
                 <h1 className="text-3xl font-bold">All Customers</h1>
                 <h2 className="text-base text-activeCol">Active Members</h2>
               </div>
-              <div className="flex space-x-5">
+              <div className="sm:flex space-x-5 hidden">
                 <label
                   htmlFor="default-search"
                   className="mb-5 text-sm font-medium text-gray-900 sr-only dark:text-white"
