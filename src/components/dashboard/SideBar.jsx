@@ -63,8 +63,8 @@ const Bar = () => {
   ];
 
   return (
-    <div className="flex flex-col h-screen bg-[white] text-black w-16 hover:w-64 transition-width duration-300 group hover:items-start ">
-      <div className=" gap-2 p-5 flex align-middle mt-6 mb-4">
+    <div className="flex flex-col h-screen bg-[white] text-black w-16 hover:w-64 transition-width duration-300 group hover:items-start">
+      <div className=" gap-2 p-3 sm:p-5 flex align-middle mt-6 mb-4">
         <div>
           {" "}
           <DashboardLogo />

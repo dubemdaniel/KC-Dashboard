@@ -21,7 +21,7 @@ const MainDashboard = () => {
   // const [open, setOpen] = useState(false);
   return (
     <div className="flex h-screen w-full ">
-      <div className="w-screen  bg-slate-400 bg-opacity-15">
+      <div className="w-screen  bg-slate-400 bg-opacity-15 h-full sm:h-0">
         <div className=" w-[90%] h-screen  py-10  sm:block pr-12 pl-4 ">
           <div className="flex sm:justify-between flex-col sm:flex-row">
             <h1 className="text-3xl font-bold text-center mb-4 sm:mb-0 sm:text-left">
@@ -111,7 +111,7 @@ const MainDashboard = () => {
             </div>
           </div>
 
-          <div className="h-screen mt-10 bg-white shadow-lg rounded-3xl">
+          <div className="h-screen mt-10 bg-white shadow-lg rounded-3xl overflow-x-auto">
             <div className="flex flex-col justify-between p-10 sm:flex-row">
               <div className="">
                 <h1 className="text-3xl font-bold">All Customers</h1>
