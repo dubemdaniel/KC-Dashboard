@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Apple from "../../assets/images/Apple.svg";
 import Facebook from '../../assets/images/Facebook.svg'
 import Google from "../../assets/images/Google.svg";
-import Cancel from "../../assets/images/Cancel.svg";
 import Password from '../../assets/images/Password.svg'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Toggle from "./Toggle";
 import { useNavigate } from "react-router";
-
+import { doCreateUserWithEmailAndPassWord } from "../../firebase/auth";
 
 const SignUp = () => {
+  const [isRegistering, setIsRegistering] = useState(false)
 
   const navigate = useNavigate()
   const goToPersonalInfo = () => {
     navigate('/personalinfo')
+  }
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    if (!isRegistering) {
+      setIsRegistering(true)
+      await doCreateUserWithEmailAndPassWord(email, password)
+    }
   }
 
   return (
@@ -73,7 +80,7 @@ const SignUp = () => {
           }) => (
             <div>
               <form
-                onSubmit={handleSubmit}
+                onSubmit={handleSubmit && onSubmit}
                 className="flex flex-col gap-6 pt-4"
               >
                 <input
@@ -109,6 +116,7 @@ const SignUp = () => {
                 className="register-btn mt-7 py-5 rounded-2xl text-white font-semibold text-xl w-full text-center bg-[#5932EA]"
                 type="submit"
                 onClick={goToPersonalInfo}
+              
                 // disabled={isSubmitting}
                 // onClick={() => goToPersonalInfo}
               >

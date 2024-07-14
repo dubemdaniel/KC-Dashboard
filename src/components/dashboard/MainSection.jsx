@@ -166,6 +166,8 @@ const MainDashboard = () => {
                       className="text-sm font-bold border-0 outline-none bg-gray-50"
                     >
                       <option value="New">Newest</option>
+                      <option value="New">Recent</option>
+                      <option value="New">Most-Recent</option>
                     </select>
                   </div>
                 </div>
