@@ -1,7 +1,4 @@
-import React from 'react'
 
-const Ellipse62 = () => {
-  return (
     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <circle cx="13" cy="13" r="12.35" fill="url(#pattern0_2702_568)" stroke="white" stroke-width="1.3"/>
     <defs>
@@ -12,7 +9,4 @@ const Ellipse62 = () => {
     </defs>
     </svg>
     
-  )
-}
-
-export default Ellipse62
+ 

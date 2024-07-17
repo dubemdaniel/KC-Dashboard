@@ -10,21 +10,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Members from "../../assets/DashboardIcons/Members";
 import ActiveNow from "../../assets/DashboardIcons/ActiveNow";
 import TotalCustomers from "../../assets/DashboardIcons/TotalCustomers";
-import Ellipse58 from "../../assets/DashboardIcons/Ellipse58";
-import Ellipse59 from "../../assets/DashboardIcons/Ellipse59";
-import Ellipse60 from "../../assets/DashboardIcons/Ellipse60";
-import Ellipse61 from "../../assets/DashboardIcons/Ellipse61";
-import Ellipse62 from "../../assets/DashboardIcons/Ellipse62";
+import Ellipse58 from "../../assets/DashboardIcons/Ellipse58.svg";
+import Ellipse59 from "../../assets/DashboardIcons/Ellipse59.svg";
+import Ellipse60 from "../../assets/DashboardIcons/Ellipse60.svg";
+import Ellipse61 from "../../assets/DashboardIcons/Ellipse61.svg";
+import Ellipse62 from "../../assets/DashboardIcons/Ellipse62.svg";
 import Data from "../../components/dashboard/Data";
 
 const MainDashboard = () => {
   // const [open, setOpen] = useState(false);
   return (
-    <div className="flex h-screen w-full ">
-      <div className="w-screen  bg-slate-400 bg-opacity-15 h-full sm:h-0">
+    <div className="flex w-full h-screen ">
+      <div className="w-screen h-full bg-slate-400 bg-opacity-15 sm:h-0">
         <div className=" w-[90%] h-screen  py-10  sm:block pr-12 pl-4 ">
-          <div className="flex sm:justify-between flex-col sm:flex-row">
-            <h1 className="text-3xl font-bold text-center mb-4 sm:mb-0 sm:text-left">
+          <div className="flex flex-col sm:justify-between sm:flex-row">
+            <h1 className="mb-4 text-3xl font-bold text-center sm:mb-0 sm:text-left">
               Hello Evano 👋,
             </h1>
 
@@ -55,15 +55,15 @@ const MainDashboard = () => {
               <input
                 type="search"
                 id="default-search"
-                className="w-full p-3 text-sm text-gray-900 border-0 rounded-lg shadow-lg outline-none  ps-10 bg-gray-50"
+                className="w-full p-3 text-sm text-gray-900 border-0 rounded-lg shadow-lg outline-none ps-10 bg-gray-50"
                 placeholder="Search"
                 required
               />
             </div>
           </div>
           <div className="mt-10 ">
-            <div className=" flex flex-col sm:flex-row sm:w-full sm:flex-wrap align-middle items-start sm:items-center justify-center w-full  px-10 bg-white shadow-lg rounded-3xl py-4 gap-4 sm:justify-around">
-              <div className="flex space-x-6 justify-start">
+            <div className="flex flex-col items-start justify-center w-full gap-4 px-10 py-4 align-middle bg-white shadow-lg md:flex-row sm:w-full sm:flex-wrap sm:items-start rounded-3xl sm:justify-around " >
+              <div className="flex justify-start space-x-6">
                 <div className="image ">
                   <TotalCustomers />
                 </div>
@@ -76,7 +76,7 @@ const MainDashboard = () => {
                   </span>
                 </div>
               </div>
-              <div className="hidden sm:block h-[5rem] border-[#47474715] border w-0"></div>
+              <div className="hidden md:block h-[5rem] border-[#47474715] border w-0"></div>
               <div className="flex space-x-6 ">
                 <div className="image">
                   <Members />
@@ -90,7 +90,7 @@ const MainDashboard = () => {
                   </span>
                 </div>
               </div>
-              <div className="hidden sm:block h-[5rem] border-[#47474715] border w-0"></div>
+              <div className="hidden md:block h-[5rem] border-[#47474715] border w-0"></div>
 
               <div className="flex space-x-6 ">
                 <div className="image">
@@ -100,24 +100,28 @@ const MainDashboard = () => {
                   <p className="text-dbCol">Active Now</p>
                   <h2 className="text-4xl font-bold text-textCol">189</h2>
                   <div className="flex -space-x-2 border-black">
-                    <Ellipse58 />
-                    <Ellipse59 />
-                    <Ellipse60 />
-                    <Ellipse61 />
-                    <Ellipse62 />
+                 <img src={       Ellipse58 } alt="" />
+                 <img src={                     Ellipse59 } alt="" />
+                 <img src={  Ellipse60 } alt="" />
+                 <img src={     Ellipse61 } alt="" />
+            
+
+                  
+                 
+                 <img src={  Ellipse62 } alt="" />
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="h-screen mt-10 bg-white shadow-lg rounded-3xl overflow-x-auto">
+          <div className="h-screen mt-10 overflow-x-auto bg-white shadow-lg rounded-3xl">
             <div className="flex flex-col justify-between p-10 sm:flex-row">
               <div className="">
                 <h1 className="text-3xl font-bold">All Customers</h1>
                 <h2 className="text-base text-activeCol">Active Members</h2>
               </div>
-              <div className="sm:flex space-x-5 hidden">
+              <div className="hidden space-x-5 sm:flex">
                 <label
                   htmlFor="default-search"
                   className="mb-5 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -125,9 +129,9 @@ const MainDashboard = () => {
                   Search
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
+                  <div className="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3 sm:mb-8 md:mb-0">
                     <svg
-                      className="w-4 h-4 mb-4 text-gray-500 dark:text-gray-400"
+                      className="w-4 h-4 mb-4 text-gray-500 dark:text-gray-400 "
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -145,7 +149,7 @@ const MainDashboard = () => {
                   <input
                     type="search"
                     id="default-search"
-                    className="w-full p-3 text-sm text-gray-900 border-0 rounded-lg shadow-lg outline-none  ps-10 bg-gray-50"
+                    className="w-full p-3 text-sm text-gray-900 border-0 rounded-lg shadow-lg outline-none ps-10 bg-gray-50"
                     placeholder="Search"
                     required
                   />
@@ -174,43 +178,43 @@ const MainDashboard = () => {
               </div>
             </div>
             <div className="h-screen px-2 sm:px-8">
-              <table className="min-w-full bg-white  ">
-                <thead className="text-left py-2 sm:py-6 mb-4">
+              <table className="min-w-full bg-white ">
+                <thead className="py-2 mb-4 text-left sm:py-6">
                   <tr>
-                    <th className="py-2 px-4 border-b border-gray-200">Customers Name</th>
-                    <th className="py-2 px-4 border-b border-gray-200">
+                    <th className="px-4 py-2 border-b border-gray-200">Customers Name</th>
+                    <th className="px-4 py-2 border-b border-gray-200">
                       Company
                     </th>
-                    <th className="py-2 px-4 border-b border-gray-200">
+                    <th className="px-4 py-2 border-b border-gray-200">
                     Email
                     </th>
-                    <th className="py-2 px-4 border-b border-gray-200">
+                    <th className="px-4 py-2 border-b border-gray-200">
                       Phone Number
                     </th>
-                    <th className="py-2 px-4 border-b border-gray-200">
+                    <th className="px-4 py-2 border-b border-gray-200">
                       Country
                     </th>
-                    <th className="py-2 px-4 border-b border-gray-200">
+                    <th className="px-4 py-2 border-b border-gray-200">
                       Status
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {Data.map((data, index) => (
-                    <tr key={index} className="hover:bg-gray-100 border-b border-gray-200">
-                      <td className="py-4 px-4 border-b border-gray-200">
+                    <tr key={index} className="border-b border-gray-200 hover:bg-gray-100">
+                      <td className="px-4 py-4 border-b border-gray-200">
                         {data.name}
                       </td>
-                      <td className="py-2 px-4 border-b border-gray-200">
+                      <td className="px-4 py-2 border-b border-gray-200">
                         {data.company}
                       </td>
-                      <td className="py-2 px-4 border-b border-gray-200">
+                      <td className="px-4 py-2 border-b border-gray-200">
                         {data.email}
                       </td>
-                      <td className="py-2 px-4 border-b border-gray-200">
+                      <td className="px-4 py-2 border-b border-gray-200">
                         {data.phone}
                       </td>
-                      <td className="py-2 px-4 border-b border-gray-200">
+                      <td className="px-4 py-2 border-b border-gray-200">
                         {data.country}
                       </td>
                       <td

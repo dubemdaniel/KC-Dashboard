@@ -1,33 +1,100 @@
 import React, { useState } from "react";
 import Apple from "../../assets/images/Apple.svg";
-import Facebook from '../../assets/images/Facebook.svg'
+import Facebook from "../../assets/images/Facebook.svg";
 import Google from "../../assets/images/Google.svg";
-import Password from '../../assets/images/Password.svg'
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import Password from "../../assets/images/Password.svg";
+import { useFormik } from "formik";
 import Toggle from "./Toggle";
 import { useNavigate } from "react-router";
-import { doCreateUserWithEmailAndPassWord } from "../../firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../firebase/firebase";
+import { setDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
+
+const initialValues = {
+  email: "",
+  password: "",
+};
+
+
+
+const validate = (values) => {
+  const errors = {};
+  if (!values.password) {
+    errors.password = "This field is Required";
+  }
+
+  if (!values.email) {
+    errors.email = "This field is Required";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+    errors.email = "Invalid email address";
+  }
+  return errors;
+};
 
 const SignUp = () => {
-  const [isRegistering, setIsRegistering] = useState(false)
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-  const goToPersonalInfo = () => {
-    navigate('/personalinfo')
-  }
-  const onSubmit = async (e) => {
-    e.preventDefault()
-    if (!isRegistering) {
-      setIsRegistering(true)
-      await doCreateUserWithEmailAndPassWord(email, password)
+  const personInfo = () => {
+    navigate("/Personalinfo");
+  };
+
+  const onSubmit = async (values) => {
+    try {
+      await createUserWithEmailAndPassword(auth, values.email, values.password);
+      const user = auth.currentUser;
+      console.log(user);
+      if (user) {
+        const userRef = doc(db, "Users", user.uid);
+        await setDoc(userRef, {
+          email: user.email,
+        });
+        console.log('y u no dey work')
+
+        console.log("User document created!");
+        toast.success("Email added successfully", { position: "top-left" });
+        personInfo();
+        console.log("normal");
+      }
+      console.log("user is registered successfully");
+    } catch (error) {
+      console.log("not normal");
+      toast.error(String(error), { position: "bottom-right" });
     }
-  }
+  };
+
+  const formik = useFormik({
+    initialValues,
+    onSubmit,
+    validate,
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  // const togglePasswordVisibility = () => {
+  //   setShowPassword(!showPassword);
+  // };
+
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [isRegistering, setIsRegistering] = useState(false);
+
+  // const navigate = useNavigate();
+  // const goToPersonalInfo = () => {
+  //   navigate("/personalinfo");
+  // };
+  // const onSubmit = async (e) => {
+  //   e.preventDefault();
+  //   if (!isRegistering) {
+  //     setIsRegistering(true);
+  //     await doCreateUserWithEmailAndPassWord(email, password);
+  //   }
 
   return (
     <div className="sm:flex sm:justify-center sm:h-screen sm:items-center mt-6 sm:mt-0">
       <div className="register bg-offWhite p-2 w-[96%] lg:w-[40%] 2xl:w-[30%]  md:h-[60%] lg:h-fit sm:p-8 rounded-3xl m-auto sm:shadow-lg my-auto ">
         <div className="first-row flex justify-between">
-          <Toggle/>
+          <Toggle />
           <div className="cancel">
             {/* <button>
               <img src={Cancel} alt="" />
@@ -48,84 +115,53 @@ const SignUp = () => {
           </div>
         </div>
         <p className="text-[#757475b6]">or register with email</p>
-        <Formik
-          initialValues={{ email: "", password: "" }}
-          validate={(values) => {
-            const errors = {};
-            if (!values.email) {
-              errors.email = "Required";
-            } else if (
-              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            ) {
-              errors.email = "Invalid email address";
-            }
-            return errors;
-          }}
-          onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-            }, 400);
-          }}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
-        
-          }) => (
-            <div>
-              <form
-                onSubmit={handleSubmit && onSubmit}
-                className="flex flex-col gap-6 pt-4"
-              >
-                <input
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                  className="p-5 border rounded-2xl outline-[#5932EA]"
-                  placeholder="Email"
-                />
-                {errors.email && touched.email && errors.email}
-                <div className="relative">
-                  <input
-                    type="password"
-                    name="password"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.password}
-                    className="p-5 border-2 rounded-2xl outline-[#5932EA] border-borderCol w-full "
-                    placeholder="Password"
-                  />
-                  <img
-                    src={Password}
-                    alt=""
-                    className="absolute top-6 right-4 text-2xl/>  "
-                  />
-                </div>
-                {errors.password && touched.password && errors.password}
-              </form>
-              <p className="text-[#757475b6]">8+ characters</p>
-              <button
-                className="register-btn mt-7 py-5 rounded-2xl text-white font-semibold text-xl w-full text-center bg-[#5932EA]"
-                type="submit"
-                onClick={goToPersonalInfo}
-              
-                // disabled={isSubmitting}
-                // onClick={() => goToPersonalInfo}
-              >
-                
-                Create account
-              </button>
+        <div>
+          <form
+            onSubmit={formik.handleSubmit}
+            className="flex flex-col gap-6 pt-4"
+          >
+            <input
+              type="email"
+              name="email"
+              // onChange={handleChange}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+              className="p-5 border rounded-2xl outline-[#5932EA]"
+              placeholder="Email"
+            />
+            {formik.touched.email && formik.errors.email ? (
+              <div className="text-red-600 ">{formik.errors.email}</div>
+            ) : null}
+            <div className="relative">
+              <input
+                type="password"
+                name="password"
+                // onChange={handleChange}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
+                className="p-5 border-2 rounded-2xl outline-[#5932EA] border-borderCol w-full "
+                placeholder="Password"
+              />
+              <img
+                src={Password}
+                alt=""
+                className="absolute top-6 right-4 text-2xl/>  "
+              />
             </div>
-          )}
-        </Formik>
+            {formik.touched.password && formik.errors.password ? (
+              <div className="text-red-600 ">{formik.errors.password}</div>
+            ) : null}
+            <p className="text-[#757475b6]">8+ characters</p>
+            <button
+              className="register-btn mt-7 py-5 rounded-2xl text-white font-semibold text-xl w-full text-center bg-[#5932EA]"
+              type="submit"
+            >
+              Create account
+            </button>
+          </form>
+        </div>
 
         <div className="terms flex mt-4 space-x-5">
           <input
@@ -144,7 +180,6 @@ const SignUp = () => {
           <span className="text-blue-400">Privacy Policy</span>
         </p>
       </div>
-
     </div>
   );
 };

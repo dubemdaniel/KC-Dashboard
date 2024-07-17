@@ -8,13 +8,13 @@ const Toggle = () => {
   return (
     <div className="flex justify-between w-[8rem]">
       {NavLinks.map((links, index) => (
-        <a key={index}
+        <button key={index}
           className={
             location.pathname === links.href ? "border-b-2 border-red-400" : ""
           }
         >
           <NavLink to={links.href}> {links.name}  </NavLink>
-          </a>
+          </button>
       ))}
       {/* <span className="text-[#757475b6] ">Log In</span> */}
     </div>
